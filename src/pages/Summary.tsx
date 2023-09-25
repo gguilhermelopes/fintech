@@ -13,7 +13,7 @@ const Summary = () => {
           <h2>Vendas</h2>
           <span>
             {data
-              .filter((venda) => venda.status !== "falha")
+              .filter((item) => item.status !== "falha")
               .reduce((a, b) => a + b.preco, 0)
               .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
           </span>
@@ -22,7 +22,7 @@ const Summary = () => {
           <h2>Recebido</h2>
           <span>
             {data
-              .filter((venda) => venda.status === "pago")
+              .filter((item) => item.status === "pago")
               .reduce((a, b) => a + b.preco, 0)
               .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
           </span>
@@ -31,13 +31,13 @@ const Summary = () => {
           <h2>Processando</h2>
           <span>
             {data
-              .filter((venda) => venda.status === "processando")
+              .filter((item) => item.status === "processando")
               .reduce((a, b) => a + b.preco, 0)
               .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
           </span>
         </div>
       </div>
-      <div className="box">Gráficos</div>
+      <div className="box mb">Gráficos</div>
     </section>
   );
 };

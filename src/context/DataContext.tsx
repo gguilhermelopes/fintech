@@ -8,7 +8,7 @@ import {
 } from "react";
 import useFetch from "../hooks/useFetch";
 
-type IVenda = {
+export type ISale = {
   id: string;
   nome: string;
   preco: number;
@@ -19,7 +19,7 @@ type IVenda = {
 };
 
 type IDataContext = {
-  data: IVenda[] | null;
+  data: ISale[] | null;
   loading: boolean;
   error: string | null;
   start: string;
@@ -52,7 +52,7 @@ export const DataContextProvider = ({ children }: PropsWithChildren) => {
   const [start, setStart] = useState(getDate(30));
   const [finish, setFinish] = useState(getDate(0));
 
-  const { data, loading, error } = useFetch<IVenda[]>(
+  const { data, loading, error } = useFetch<ISale[]>(
     `https://data.origamid.dev/vendas/?inicio=${start}&final=${finish}`
   );
 

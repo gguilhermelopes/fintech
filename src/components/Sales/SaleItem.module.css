@@ -1,0 +1,17 @@
+.saleItem {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--gap);
+  margin-bottom: var(--gap-s);
+  align-items: center;
+}
+
+.saleItem a {
+  font-family: monospace;
+  text-decoration: none;
+  color: inherit;
+}
+
+.saleItem div:last-child {
+  justify-self: end;
+}
