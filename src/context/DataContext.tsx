@@ -1,4 +1,11 @@
-import { PropsWithChildren, createContext, useContext } from "react";
+import {
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
 import useFetch from "../hooks/useFetch";
 
 type IVenda = {
@@ -15,6 +22,10 @@ type IDataContext = {
   data: IVenda[] | null;
   loading: boolean;
   error: string | null;
+  start: string;
+  setStart: Dispatch<SetStateAction<string>>;
+  finish: string;
+  setFinish: Dispatch<SetStateAction<string>>;
 };
 
 const DataContext = createContext<IDataContext | null>(null);
@@ -26,13 +37,29 @@ export const useData = () => {
   return context;
 };
 
+const getDate = (n: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() - n);
+
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = date.getFullYear();
+
+  return `${yyyy}-${mm}-${dd}`;
+};
+
 export const DataContextProvider = ({ children }: PropsWithChildren) => {
+  const [start, setStart] = useState(getDate(30));
+  const [finish, setFinish] = useState(getDate(0));
+
   const { data, loading, error } = useFetch<IVenda[]>(
-    "https://data.origamid.dev/vendas/"
+    `https://data.origamid.dev/vendas/?inicio=${start}&final=${finish}`
   );
 
   return (
-    <DataContext.Provider value={{ data, loading, error }}>
+    <DataContext.Provider
+      value={{ data, loading, error, start, setStart, finish, setFinish }}
+    >
       {children}
     </DataContext.Provider>
   );
