@@ -6,7 +6,7 @@ const DateRange = () => {
   const [finish, setFinish] = useState("");
 
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
+    <form onSubmit={(event) => event.preventDefault()} className="box flex">
       <DateInput
         id="start"
         label="Início"
