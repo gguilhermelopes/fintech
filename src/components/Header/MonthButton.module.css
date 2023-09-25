@@ -1,9 +1,15 @@
 .button {
   padding: var(--gap) var(--gap-s);
   background-color: var(--color-3);
-  border: none;
+  border: 0.5px solid transparent;
   border-radius: var(--gap);
   color: var(--color-2);
   font-weight: 600;
   text-transform: capitalize;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--color-4);
+  border-color: var(--color-3);
 }

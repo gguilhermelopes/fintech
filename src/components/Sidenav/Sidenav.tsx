@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import FintechSVG from "../../assets/FintechSVG";
 import summary from "../../assets/icons/resumo.svg";
 import sales from "../../assets/icons/vendas.svg";
@@ -15,25 +17,25 @@ const Sidenav = () => {
           <span>
             <img src={summary} alt="" />
           </span>
-          <a href="">Resumo</a>
+          <NavLink to="/">Resumo</NavLink>
         </li>
         <li>
           <span>
             <img src={sales} alt="" />
           </span>
-          <a href="">Vendas</a>
+          <NavLink to="/vendas">Vendas</NavLink>
         </li>
         <li>
           <span>
             <img src={contact} alt="" />
           </span>
-          <a href="">Contato</a>
+          <NavLink to="https://gguilhermelopes.github.io/">Contato</NavLink>
         </li>
         <li>
           <span>
             <img src={exit} alt="" />
           </span>
-          <a href="">Sair</a>
+          <a>Sair</a>
         </li>
       </ul>
     </nav>
