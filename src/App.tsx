@@ -1,6 +1,6 @@
 import "./Style.css";
 import Header from "./components/Header/Header";
-import Sidenav from "./components/Sidenav";
+import Sidenav from "./components/Sidenav/Sidenav";
 import { DataContextProvider } from "./context/DataContext";
 import Sales from "./pages/Sales";
 import Summary from "./pages/Summary";
