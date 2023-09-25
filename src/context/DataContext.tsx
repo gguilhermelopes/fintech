@@ -56,6 +56,8 @@ export const DataContextProvider = ({ children }: PropsWithChildren) => {
     `https://data.origamid.dev/vendas/?inicio=${start}&final=${finish}`
   );
 
+  console.log(data);
+
   return (
     <DataContext.Provider
       value={{ data, loading, error, start, setStart, finish, setFinish }}
