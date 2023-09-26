@@ -3,3 +3,13 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--gap);
 }
+
+@media (max-width: 1000px) {
+  .dateRange {
+    grid-template-columns: 1fr;
+  }
+
+  .dateRange *:last-child {
+    grid-row: 1;
+  }
+}

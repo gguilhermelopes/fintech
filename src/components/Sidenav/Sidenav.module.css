@@ -18,6 +18,7 @@
 .sidenav li a {
   flex: 1;
   font-size: 1.125rem;
+  margin: var(--gap-s) 0;
   text-decoration: none;
   color: var(--color-1);
   padding: var(--gap-s) 0;
@@ -25,4 +26,15 @@
 
 .sidenav li:hover span {
   background-color: var(--color-3);
+}
+
+@media (max-width: 700px) {
+  .sidenav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidenav li a {
+    font-size: 0.875rem;
+  }
 }

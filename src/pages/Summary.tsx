@@ -1,9 +1,13 @@
+import SalesChart from "../components/Summary/SalesChart";
+import Loading from "../components/UI/Loading";
 import { useData } from "../context/DataContext";
 
 import styles from "./Summary.module.css";
 
 const Summary = () => {
-  const { data } = useData();
+  const { data, loading } = useData();
+
+  if (loading) return <Loading />;
 
   if (!data) return null;
   return (
@@ -37,7 +41,9 @@ const Summary = () => {
           </span>
         </div>
       </div>
-      <div className="box mb">Gráficos</div>
+      <div className="box mb">
+        <SalesChart data={data} />
+      </div>
     </section>
   );
 };

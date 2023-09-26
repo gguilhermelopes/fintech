@@ -15,3 +15,13 @@
 .saleItem div:last-child {
   justify-self: end;
 }
+
+@media (max-width: 700px) {
+  .saleItem {
+    grid-template-columns: 1fr;
+  }
+
+  .saleItem div:last-child {
+    justify-self: start;
+  }
+}
